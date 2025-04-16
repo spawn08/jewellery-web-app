@@ -54,7 +54,7 @@ export const CartProvider = ({ children }) => {
     setCart([]);
   };
 
-  const itemCount = () => {
+  const getItemCount = () => {
     return cart.reduce((count, item) => count + item.quantity, 0);
   };
 
@@ -74,7 +74,7 @@ export const CartProvider = ({ children }) => {
         removeFromCart,
         updateQuantity,
         onClearCart,
-        itemCount,
+        getItemCount,
         getTotalAmount
       }}
     >

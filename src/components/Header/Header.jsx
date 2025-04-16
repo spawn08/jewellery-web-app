@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaSearch, FaShoppingBag, FaTimes, FaUser } from "react-icons/fa";
 import "./Header.css";
 import { CartContext } from "../../context/CartContext";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Logo from "../Logo";
 
 const Header = () => {
@@ -10,9 +10,13 @@ const Header = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const { getItemCount } = useContext(CartContext);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
-  const toggleSearch = () => setIsSearchOpen(!isSearchOpen);
+  const toggleSearch = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
 
   return (
     <header className="site-header">
@@ -26,6 +30,84 @@ const Header = () => {
               <Logo />
             </Link>
           </div>
+          <nav className={`main-nav ${isMenuOpen ? 'menu-open' : ''}`}>
+            <ul>
+              <li>
+                <NavLink to="/" onClick={() => setIsMenuOpen(false)}>
+                  Home
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/products" onClick={() => setIsMenuOpen(false)}>
+                  Shop All
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/products?category=necklace"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Necklaces
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/products?category=earrings"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Earrings
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/products?category=bracelet"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Bracelets
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/products?category=ring"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Rings
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/products?category=anklet"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Anklets
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+
+          <div className="header-actions">
+            <button
+              className="icon-button search-button"
+              onClick={toggleSearch}
+            >
+              <FaSearch />
+            </button>
+            <Link to="/account" className="icon-button">
+              <FaUser />
+            </Link>
+            <Link to="/cart" className="icon-button cart-icon">
+              <FaShoppingBag />
+              {getItemCount() > 0 && (
+                <span className="cart-count">{getItemCount()}</span>
+              )}
+            </Link>
+          </div>
+        </div>
+        <div className={`search-bar ${isSearchOpen ? 'show': ''}`}>
+            <input type="text"  placeholder="Search for jewellery..."/>
+            <button className="search-submit">
+                <FaSearch />
+            </button>
         </div>
       </div>
     </header>

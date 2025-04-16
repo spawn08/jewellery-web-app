@@ -49,8 +49,8 @@ button, .button {
 }
 
 /* Responsive utilities */
-/* @media (max-width: 768px) {
+@media (max-width: 768px) {
   .container {
     padding: 0 0.75rem;
   }
-}  */
+} 
