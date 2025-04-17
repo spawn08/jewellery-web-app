@@ -1,18 +1,24 @@
 .home-page {
-    padding-top: 0;
+  padding-top: 0;
 }
-.section-title{
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 1.8rem;
-    color: var(--secondary-color);
-    position: relative;
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+  position: relative;
 }
-.section-title::after{
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: var(--primary-color);
-    margin: 10px auto 0;
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: var(--primary-color);
+  margin: 10px auto 0;
+}
+
+/* Featured Section */
+.featured-section {
+  padding: 60px 0;
+  background-color: var(--light-bg);
 }
