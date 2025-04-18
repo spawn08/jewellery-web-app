@@ -7,9 +7,13 @@ import FeaturedSection from "../../components/Featured/FeaturedSection";
 
 const Home = () => {
   //Get Featured Products
-  const featuredProducts = products.filter((product) => product.bestseller).slice(0, 4);
+  const featuredProducts = products
+    .filter((product) => product.bestseller)
+    .slice(0, 4);
   // Get New Arrivals Products
-  const newArrivals = products.filter((product) => product.newArrivals).slice(0, 4);
+  const newArrivals = products
+    .filter((product) => product.newArrivals)
+    .slice(0, 4);
 
   return (
     <div className="home-page">
@@ -22,22 +26,13 @@ const Home = () => {
         <CategorySection title="Shop by Category" categories={categories} />
       </section>
 
+      {/* Featured Section */}
       <section className="featured-section">
-        <FeaturedSection title={"Bestsellers"} featuredProducts={featuredProducts}/>
+        <FeaturedSection
+          title={"Bestsellers"}
+          featuredProducts={featuredProducts}
+        />
       </section>
-      {/* <section className="featured-section">
-        <div className="container">
-          <h2 className="section-title">Bestsellers</h2>
-          <div className="featured-products">
-            {featuredProducts.map(product => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-          <div className="view-all-link">
-            <Link to="/products">View All Products</Link>
-          </div>
-        </div>
-      </section> */}
 
       <section className="banner-section">Banner Section</section>
 
